@@ -59,7 +59,7 @@
 </head>
 
 <body>
-  <h1>Resttage bis Jahresende (NRW)</h1>
+  <h1>Resttage bis 31.08.2026 (NRW)</h1>
   <p class="muted" id="meta">–</p>
 
   <div class="card">
@@ -74,12 +74,12 @@
   </div>
 
   <div class="card">
-    <div>Kalendertage bis 31.12.</div>
+    <div>Kalendertage bis 31.08.</div>
     <div class="big" id="calendarDays">–</div>
   </div>
 
   <div class="card">
-    <div>Arbeitstage bis 31.12.</div>
+    <div>Arbeitstage bis 31.08.</div>
     <div class="big" id="workDays">–</div>
     <p class="muted" id="workDaysInfo">–</p>
   </div>
@@ -118,11 +118,7 @@ function nrwHolidays(year){
     ["Tag der Arbeit", new Date(year,4,1)],
     ["Christi Himmelfahrt", addDays(easter,39)],
     ["Pfingstmontag", addDays(easter,50)],
-    ["Fronleichnam", addDays(easter,60)],
-    ["Tag der Deutschen Einheit", new Date(year,9,3)],
-    ["Allerheiligen", new Date(year,10,1)],
-    ["1. Weihnachtstag", new Date(year,11,25)],
-    ["2. Weihnachtstag", new Date(year,11,26)]
+    ["Fronleichnam", addDays(easter,60)]
   ].map(x => ({ name:x[0], date:startOfDay(x[1]) }))
    .sort((a,b)=>a.date-b.date);
 }
@@ -134,7 +130,7 @@ function render(){
 
   const today = startOfDay(new Date());
   const year = today.getFullYear();
-  const end = new Date(year,11,31);
+  const end = new Date(year,07,31);
   const start = includeToday ? today : addDays(today,1);
 
   meta.textContent = `Von ${fmt(today)} bis ${fmt(end)}`;
@@ -197,3 +193,4 @@ if ("serviceWorker" in navigator) {
 </script>
 </body>
 </html>
+
